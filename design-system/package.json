@@ -1,0 +1,16 @@
+{
+  "name": "@clipforge/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ClipForge semantic design tokens, motion, component skin and machine-readable UI contract.",
+  "sideEffects": ["*.css"],
+  "exports": {
+    ".": "./index.ts",
+    "./tokens.css": "./tokens.css",
+    "./components.css": "./components.css",
+    "./motion.css": "./motion.css",
+    "./utilities.css": "./utilities.css",
+    "./manifest.json": "./manifest.json",
+    "./llm": "./LLM-GUIDE.md"
+  }
+}
