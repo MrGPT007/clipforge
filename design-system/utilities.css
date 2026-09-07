@@ -1,0 +1,17 @@
+/* Layout + semantic utility classes safe for humans and code-generating models. */
+.cf-page { width: min(100%, var(--content-max)); margin-inline: auto; padding: var(--space-page-y) var(--space-page-x); }
+.cf-stack { display: flex; flex-direction: column; gap: var(--space-4); }
+.cf-cluster { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.cf-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-5); }
+.cf-surface { background: var(--card); color: var(--card-foreground); border: var(--stroke-default) solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+.cf-surface-flat { background: var(--card); color: var(--card-foreground); border: var(--stroke-default) solid var(--border); border-radius: var(--radius-lg); }
+.cf-inset { background: var(--surface-sunken); border: var(--stroke-hairline) solid color-mix(in srgb, var(--border) 28%, transparent); border-radius: var(--radius-md); }
+.cf-label { font-size: var(--text-2xs); font-weight: 780; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--muted-foreground); }
+.cf-muted { color: var(--muted-foreground); }
+.cf-inverse { background: var(--surface-inverse); color: var(--surface-inverse-foreground); }
+.cf-lavender { background: var(--primary); color: var(--primary-foreground); }
+.cf-lime { background: var(--secondary); color: var(--secondary-foreground); }
+.cf-focus-ring:focus-visible { outline: var(--stroke-strong) solid var(--focus); outline-offset: 3px; }
+@utility scrollbar-thin { scrollbar-width: thin; }
+@utility scrollbar-none { scrollbar-width: none; &::-webkit-scrollbar { display: none; } }
+@utility scrollbar-gutter-stable { scrollbar-gutter: stable; }
