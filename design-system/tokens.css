@@ -1,0 +1,29 @@
+/* ClipForge Design System — semantic tokens. Components consume semantic tokens only. Fluid values use clamp(). */
+:root {
+  color-scheme: light;
+  --cf-ink-950:#1f1d24; --cf-ink-900:#27242d; --cf-ink-800:#393540;
+  --cf-paper-50:#fffefb; --cf-paper-100:#f8f6f1; --cf-paper-200:#efede7; --cf-paper-300:#dedad2;
+  --cf-lavender-300:#d8c8f7; --cf-lavender-400:#b9a1ed; --cf-lavender-500:#9b7bd8; --cf-lavender-600:#7550ac;
+  --cf-lime-300:#e3fd78; --cf-lime-400:#cfea57; --cf-peach-300:#ffd16e; --cf-coral-400:#f78d71; --cf-blue-400:#75b9ec; --cf-green-500:#27865d; --cf-red-500:#b83a31;
+  --background:#f7f6f2; --foreground:#222126; --card:#ffffff; --card-foreground:#222126;
+  --popover:#fffefb; --popover-foreground:#222126; --primary:#b9a1ed; --primary-foreground:#211c2b;
+  --secondary:#e3fd78; --secondary-foreground:#222126; --muted:#efeee9; --muted-foreground:#625f69;
+  --accent:#eee7fa; --accent-foreground:#222126; --destructive:#b83a31; --destructive-foreground:#ffffff;
+  --border:#25232b; --input:#aaa5af; --ring:#7550ac; --surface-raised:#ffffff; --surface-sunken:#eeece6;
+  --surface-inverse:#222127; --surface-inverse-foreground:#fffef5; --success:#27865d; --warning:#a66a13; --info:#397eaf; --focus:#7550ac; --scrim:rgb(31 29 36 / 56%);
+  --sidebar:#fffefb; --sidebar-foreground:#222126; --sidebar-primary:#b9a1ed; --sidebar-primary-foreground:#222126; --sidebar-accent:#e3fd78; --sidebar-accent-foreground:#222126; --sidebar-border:#25232b; --sidebar-ring:#7550ac;
+  --chart-1:#b9a1ed; --chart-2:#cfea57; --chart-3:#ffd16e; --chart-4:#75b9ec; --chart-5:#f78d71;
+  --font-sans:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; --font-mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; --font-display:var(--font-sans);
+  --text-2xs:clamp(.6875rem,.65rem + .12vw,.75rem); --text-xs:clamp(.75rem,.71rem + .16vw,.8125rem); --text-sm:clamp(.8125rem,.77rem + .19vw,.9rem); --text-base:clamp(.9375rem,.9rem + .2vw,1rem); --text-md:clamp(1rem,.95rem + .25vw,1.125rem); --text-lg:clamp(1.125rem,1.03rem + .44vw,1.35rem); --text-xl:clamp(1.35rem,1.18rem + .78vw,1.75rem); --text-2xl:clamp(1.75rem,1.45rem + 1.35vw,2.5rem); --text-3xl:clamp(2.1rem,1.65rem + 2vw,3.25rem);
+  --leading-tight:1.08; --leading-heading:1.18; --leading-body:1.58; --tracking-tight:-.035em; --tracking-label:.08em;
+  --space-0:0; --space-1:clamp(.25rem,.22rem + .12vw,.3125rem); --space-2:clamp(.5rem,.45rem + .18vw,.625rem); --space-3:clamp(.75rem,.67rem + .28vw,.875rem); --space-4:clamp(1rem,.88rem + .45vw,1.25rem); --space-5:clamp(1.25rem,1.07rem + .68vw,1.625rem); --space-6:clamp(1.5rem,1.22rem + 1vw,2rem); --space-8:clamp(2rem,1.58rem + 1.55vw,2.75rem); --space-10:clamp(2.5rem,1.92rem + 2.15vw,3.625rem); --space-12:clamp(3rem,2.25rem + 2.8vw,4.5rem); --space-page-x:clamp(1rem,.42rem + 2.2vw,2.5rem); --space-page-y:clamp(1.25rem,.82rem + 1.65vw,2.25rem);
+  --control-h-sm:clamp(2rem,1.88rem + .45vw,2.25rem); --control-h-md:clamp(2.5rem,2.33rem + .65vw,2.875rem); --control-h-lg:clamp(2.875rem,2.62rem + .95vw,3.375rem); --icon-sm:clamp(.875rem,.82rem + .2vw,1rem); --icon-md:clamp(1rem,.92rem + .3vw,1.125rem); --icon-lg:clamp(1.25rem,1.12rem + .5vw,1.5rem); --content-max:82rem; --prose-max:46rem; --sidebar-w:clamp(14.75rem,13.9rem + 3vw,17rem);
+  --radius:clamp(.4rem,.35rem + .2vw,.55rem); --radius-xs:max(.2rem,calc(var(--radius) - .25rem)); --radius-sm:max(.25rem,calc(var(--radius) - .15rem)); --radius-md:var(--radius); --radius-lg:calc(var(--radius) + .2rem); --radius-xl:calc(var(--radius) + .45rem); --radius-full:999px;
+  --stroke-hairline:1px; --stroke-default:1.5px; --stroke-strong:2px;
+  --shadow-offset-xs:clamp(1px,.07vw,2px); --shadow-offset-sm:clamp(2px,.16vw,3px); --shadow-offset-md:clamp(3px,.26vw,5px); --shadow-offset-lg:clamp(4px,.38vw,7px);
+  --shadow-xs:var(--shadow-offset-xs) var(--shadow-offset-xs) 0 var(--border); --shadow-sm:var(--shadow-offset-sm) var(--shadow-offset-sm) 0 var(--border); --shadow-md:var(--shadow-offset-md) var(--shadow-offset-md) 0 var(--border); --shadow-lg:var(--shadow-offset-lg) var(--shadow-offset-lg) 0 var(--border); --shadow-soft:0 clamp(.25rem,.2rem + .2vw,.4rem) clamp(1rem,.8rem + .8vw,1.5rem) rgb(31 29 36 / 10%);
+  --duration-instant:80ms; --duration-fast:130ms; --duration-base:190ms; --duration-slow:280ms; --duration-slower:420ms; --ease-standard:cubic-bezier(.2,.8,.2,1); --ease-emphasized:cubic-bezier(.16,1,.3,1); --ease-exit:cubic-bezier(.4,0,1,1); --press-distance:clamp(1px,.12vw,2px);
+}
+.dark {
+  color-scheme:dark; --background:#18171c; --foreground:#f7f4ec; --card:#222127; --card-foreground:#f7f4ec; --popover:#25232a; --popover-foreground:#f7f4ec; --primary:#c9b3f5; --primary-foreground:#211c2b; --secondary:#d8ef6e; --secondary-foreground:#222126; --muted:#2d2a31; --muted-foreground:#bdb6c4; --accent:#383044; --accent-foreground:#f7f4ec; --destructive:#e06a60; --destructive-foreground:#1f1d24; --border:#eee9df; --input:#67616d; --ring:#c9b3f5; --surface-raised:#25232a; --surface-sunken:#131217; --surface-inverse:#f7f4ec; --surface-inverse-foreground:#222126; --success:#62c695; --warning:#f0b85f; --info:#7dc0ee; --focus:#c9b3f5; --scrim:rgb(0 0 0 / 68%); --sidebar:#1d1c21; --sidebar-foreground:#f7f4ec; --sidebar-primary:#c9b3f5; --sidebar-primary-foreground:#211c2b; --sidebar-accent:#d8ef6e; --sidebar-accent-foreground:#222126; --sidebar-border:#eee9df; --sidebar-ring:#c9b3f5; --chart-1:#c9b3f5; --chart-2:#d8ef6e; --chart-3:#ffd16e; --chart-4:#7dc0ee; --chart-5:#ff9a81; --shadow-soft:0 clamp(.25rem,.2rem + .2vw,.4rem) clamp(1rem,.8rem + .8vw,1.5rem) rgb(0 0 0 / 35%);
+}
