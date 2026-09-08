@@ -20,3 +20,4 @@ A reusable, code-first UI system for ClipForge and future projects. It is optimi
 ## Reuse
 
 Copy `design-system/`, the required `components/ui/` primitives, and the theme provider. For an LLM-driven project, include `AGENTS.md` and `design-system/LLM-GUIDE.md` in model context before generating screens.
+

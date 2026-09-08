@@ -1,0 +1,76 @@
+@layer nbs.components {
+  .nbs-switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nbs-space-2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nbs-switch input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nbs-switch__track {
+    position: relative;
+    width: 3.25rem;
+    height: 1.85rem;
+    flex: 0 0 auto;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-pill);
+    background: var(--nbs-surface-strong);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+    transition:
+      transform var(--nbs-motion-fast) var(--nbs-ease-release),
+      box-shadow var(--nbs-motion-fast) var(--nbs-ease-release),
+      background-color var(--nbs-motion-standard) var(--nbs-ease-standard);
+  }
+
+  .nbs-switch__thumb {
+    position: absolute;
+    top: 50%;
+    inset-inline-start: 3px;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 2px solid var(--nbs-border);
+    border-radius: 50%;
+    background: var(--nbs-surface);
+    transform: translateY(-50%);
+    transition:
+      inset-inline-start var(--nbs-motion-standard) var(--nbs-ease-standard),
+      background-color var(--nbs-motion-standard) var(--nbs-ease-standard);
+  }
+
+  .nbs-switch input:checked + .nbs-switch__track {
+    background: var(--nbs-success);
+  }
+
+  .nbs-switch input:checked + .nbs-switch__track .nbs-switch__thumb {
+    inset-inline-start: calc(100% - 1.15rem - 3px);
+    background: #fffdf8;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nbs-switch:hover .nbs-switch__track {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--nbs-shadow);
+    }
+  }
+
+  .nbs-switch:active .nbs-switch__track {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+    transition-duration: var(--nbs-motion-instant);
+  }
+
+  .nbs-switch input:focus-visible + .nbs-switch__track {
+    outline: 3px solid var(--nbs-focus);
+    outline-offset: 3px;
+  }
+
+  .nbs-switch__label { font-weight: var(--nbs-weight-medium); }
+}
+

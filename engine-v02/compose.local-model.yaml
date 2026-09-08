@@ -1,0 +1,21 @@
+# Entire stack on one machine/server, with no LM Studio GUI dependency.
+# Put a compatible instruction GGUF model at ./models/model.gguf first.
+services:
+  model:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    restart: unless-stopped
+    volumes:
+      - ./models:/models:ro
+    command: ["-m", "/models/model.gguf", "--alias", "clip-editor", "--host", "0.0.0.0", "--port", "8080", "--ctx-size", "4096", "--parallel", "1", "--threads", "4"]
+  worker:
+    build: .
+    restart: unless-stopped
+    init: true
+    depends_on:
+      - model
+    command: ["--config", "/config/config.json", "run"]
+    volumes:
+      - ./config.local-model.json:/config/config.json:ro
+      - ./inbox:/inbox
+      - ./data:/data
+    stop_grace_period: 30s

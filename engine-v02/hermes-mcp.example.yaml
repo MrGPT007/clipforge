@@ -1,0 +1,11 @@
+# Merge this section into your Hermes configuration after replacing both paths.
+# Point command at the Python environment where ClipForge's agent extra is installed.
+mcp_servers:
+  clipforge:
+    command: "/absolute/path/to/python"
+    args:
+      - "-m"
+      - "clipforge"
+      - "--config"
+      - "/absolute/path/to/config.json"
+      - "mcp"

@@ -1,0 +1,143 @@
+@layer nbs.components {
+  .nbs-chart-card {
+    display: grid;
+    gap: var(--nbs-space-4);
+    padding: var(--nbs-space-4);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-md);
+    background: var(--nbs-surface);
+  }
+
+  .nbs-chart-card__head,
+  .nbs-chart-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nbs-space-3);
+    flex-wrap: wrap;
+  }
+
+  .nbs-chart-card__value {
+    font-size: var(--nbs-text-3xl);
+    line-height: 1;
+  }
+
+  .nbs-chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--nbs-space-3);
+    color: var(--nbs-text-muted);
+    font-size: var(--nbs-text-xs);
+  }
+
+  .nbs-chart-legend__item {
+    display: inline-flex;
+    align-items: center;
+    gap: .42rem;
+  }
+
+  .nbs-chart-legend__swatch {
+    width: .72rem;
+    height: .72rem;
+    border: 1.5px solid var(--nbs-border);
+    border-radius: 3px;
+    background: var(--nbs-primary);
+  }
+
+  .nbs-chart-legend__swatch[data-tone="success"] { background: var(--nbs-success); }
+  .nbs-chart-legend__swatch[data-tone="warning"] { background: var(--nbs-warning); }
+  .nbs-chart-legend__swatch[data-tone="danger"] { background: var(--nbs-danger); }
+  .nbs-chart-legend__swatch[data-tone="info"] { background: var(--nbs-info); }
+
+  .nbs-chart {
+    position: relative;
+    min-height: clamp(12rem, 9rem + 10vw, 19rem);
+    padding: var(--nbs-space-4);
+    border: var(--nbs-border-width) solid color-mix(in srgb, var(--nbs-border), transparent 42%);
+    border-radius: var(--nbs-radius-sm);
+    background:
+      linear-gradient(to right, color-mix(in srgb, var(--nbs-border), transparent 91%) 1px, transparent 1px) 0 0 / 25% 100%,
+      linear-gradient(to bottom, color-mix(in srgb, var(--nbs-border), transparent 91%) 1px, transparent 1px) 0 0 / 100% 25%,
+      var(--nbs-surface-muted);
+    overflow: hidden;
+  }
+
+  .nbs-chart__bars {
+    position: absolute;
+    inset: var(--nbs-space-4);
+    display: grid;
+    grid-template-columns: repeat(var(--nbs-chart-columns, 7), minmax(0, 1fr));
+    align-items: end;
+    gap: clamp(.35rem, .2rem + .45vw, .8rem);
+  }
+
+  .nbs-chart-bar {
+    --_value: 50%;
+    position: relative;
+    min-height: .8rem;
+    height: var(--_value);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: 5px 5px 2px 2px;
+    background: var(--nbs-primary);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+    transform-origin: bottom;
+    transition: filter var(--nbs-motion-fast) var(--nbs-ease-standard), transform var(--nbs-motion-fast) var(--nbs-ease-press), box-shadow var(--nbs-motion-fast) var(--nbs-ease-press);
+  }
+
+  .nbs-chart-bar[data-tone="success"] { background: var(--nbs-success); }
+  .nbs-chart-bar[data-tone="warning"] { background: var(--nbs-warning); }
+  .nbs-chart-bar[data-tone="danger"] { background: var(--nbs-danger); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nbs-chart-bar:hover {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--nbs-shadow);
+      filter: saturate(1.08);
+    }
+  }
+
+  .nbs-chart-bar:focus-visible {
+    outline: 3px solid var(--nbs-focus);
+    outline-offset: 3px;
+  }
+
+  .nbs-sparkline {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: end;
+    gap: 3px;
+    min-width: 6rem;
+    height: 2.2rem;
+  }
+
+  .nbs-sparkline > span {
+    min-height: 3px;
+    height: var(--nbs-spark, 50%);
+    border-radius: 2px;
+    background: var(--nbs-primary-strong);
+  }
+
+  .nbs-meter {
+    display: grid;
+    grid-template-columns: repeat(var(--nbs-meter-segments, 10), 1fr);
+    gap: 3px;
+  }
+
+  .nbs-meter > span {
+    min-height: .62rem;
+    border: 1.5px solid var(--nbs-border);
+    border-radius: 2px;
+    background: var(--nbs-surface-muted);
+  }
+
+  .nbs-meter > span[data-filled="true"] { background: var(--nbs-primary); }
+  .nbs-meter[data-tone="success"] > span[data-filled="true"] { background: var(--nbs-success); }
+  .nbs-meter[data-tone="warning"] > span[data-filled="true"] { background: var(--nbs-warning); }
+  .nbs-meter[data-tone="danger"] > span[data-filled="true"] { background: var(--nbs-danger); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nbs-chart-bar { transition-duration: .01ms; }
+  }
+}
+

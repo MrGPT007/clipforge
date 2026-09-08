@@ -1,0 +1,87 @@
+@layer nbs.components {
+  .nbs-billing-summary {
+    display: grid;
+    gap: var(--nbs-space-4);
+    padding: var(--nbs-space-5);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-md);
+    background: var(--nbs-surface);
+    box-shadow: 3px 3px 0 var(--nbs-shadow);
+  }
+
+  .nbs-billing-summary__head,
+  .nbs-billing-summary__row,
+  .nbs-payment-method,
+  .nbs-invoice-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--nbs-space-3);
+  }
+
+  .nbs-billing-summary__total {
+    padding-top: var(--nbs-space-3);
+    border-top: var(--nbs-border-width) solid var(--nbs-border);
+    font-size: var(--nbs-text-lg);
+    font-weight: var(--nbs-weight-bold);
+  }
+
+  .nbs-payment-method,
+  .nbs-invoice-row {
+    padding: var(--nbs-space-3);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-sm);
+    background: var(--nbs-surface-muted);
+  }
+
+  .nbs-payment-method__brand {
+    display: grid;
+    place-items: center;
+    min-width: 3.2rem;
+    min-height: 2.1rem;
+    padding-inline: .55rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: 6px;
+    background: var(--nbs-surface);
+    font-family: var(--nbs-font-mono);
+    font-size: var(--nbs-text-xs);
+    font-weight: var(--nbs-weight-bold);
+    box-shadow: 1px 1px 0 var(--nbs-shadow);
+  }
+
+  .nbs-payment-method__copy,
+  .nbs-invoice-row__copy { min-width: 0; flex: 1; }
+  .nbs-payment-method__copy span,
+  .nbs-invoice-row__copy span { display: block; color: var(--nbs-text-muted); font-size: var(--nbs-text-xs); }
+
+  .nbs-commerce-handoff {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--nbs-space-3);
+    padding: var(--nbs-space-4);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-md);
+    background: color-mix(in srgb, var(--nbs-info), var(--nbs-surface) 68%);
+  }
+
+  .nbs-commerce-handoff__mark {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-sm);
+    background: var(--nbs-surface);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+    font-weight: var(--nbs-weight-bold);
+  }
+
+  @media (max-width: 600px) {
+    .nbs-commerce-handoff { grid-template-columns: auto 1fr; }
+    .nbs-commerce-handoff > :last-child { grid-column: 1 / -1; justify-self: stretch; }
+    .nbs-payment-method,
+    .nbs-invoice-row { align-items: flex-start; flex-wrap: wrap; }
+  }
+}
+

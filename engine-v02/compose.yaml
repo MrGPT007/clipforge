@@ -1,0 +1,14 @@
+services:
+  worker:
+    build: .
+    restart: unless-stopped
+    init: true
+    environment:
+      CLIPFORGE_API_KEY: ${CLIPFORGE_API_KEY:-}
+    volumes:
+      - ./config.docker.json:/config/config.json:ro
+      - ./inbox:/inbox
+      - ./data:/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    stop_grace_period: 30s

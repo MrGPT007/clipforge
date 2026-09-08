@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clipforge-local"
+version = "0.2.0"
+description = "Portable local-first video clipping with a persistent internal scheduler"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+speech = ["faster-whisper>=1.1,<2"]
+downloads = ["yt-dlp[default]>=2025.11.12"]
+agent = ["mcp>=1.20,<2"]
+all = ["faster-whisper>=1.1,<2", "yt-dlp[default]>=2025.11.12", "mcp>=1.20,<2"]
+
+[project.scripts]
+clipforge = "clipforge.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["clipforge*"]

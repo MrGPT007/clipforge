@@ -1,0 +1,27 @@
+{
+  "data_dir": "data",
+  "inbox_dir": "inbox",
+  "default_profile": "local",
+  "model_profiles": {
+    "local": {
+      "llm_base_url": "http://127.0.0.1:1234/v1",
+      "llm_model": "REPLACE_WITH_LM_STUDIO_MODEL_ID",
+      "llm_daily_request_limit": 0,
+      "whisper_model": "small",
+      "whisper_device": "cpu",
+      "whisper_compute_type": "int8"
+    },
+    "cloud-free": {
+      "llm_base_url": "https://openrouter.ai/api/v1",
+      "llm_model": "REPLACE_WITH_A_CURRENTLY_FREE_MODEL_ID",
+      "llm_api_key_env": "OPENROUTER_API_KEY",
+      "llm_response_format": "json_object",
+      "llm_daily_request_limit": 20
+    },
+    "custom": {
+      "llm_base_url": "http://127.0.0.1:8080/v1",
+      "llm_model": "REPLACE_WITH_YOUR_MODEL_ID",
+      "llm_api_key_env": "CUSTOM_AI_API_KEY"
+    }
+  }
+}

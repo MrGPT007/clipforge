@@ -1,0 +1,40 @@
+@layer nbs.components {
+  .nbs-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-md);
+    background: var(--nbs-surface);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+  }
+
+  .nbs-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 42rem;
+    font-size: var(--nbs-text-sm);
+  }
+
+  .nbs-table th,
+  .nbs-table td {
+    padding: .8rem var(--nbs-space-3);
+    border-bottom: 1px solid color-mix(in srgb, var(--nbs-border), transparent 72%);
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .nbs-table th {
+    background: var(--nbs-surface-muted);
+    color: var(--nbs-text-muted);
+    font-size: var(--nbs-text-xs);
+    font-weight: var(--nbs-weight-bold);
+    letter-spacing: .035em;
+    text-transform: uppercase;
+  }
+
+  .nbs-table tbody tr:last-child td { border-bottom: 0; }
+  .nbs-table tbody tr { transition: background-color var(--nbs-motion-fast) var(--nbs-ease-standard); }
+  .nbs-table tbody tr:hover { background: color-mix(in srgb, var(--nbs-primary), transparent 88%); }
+  .nbs-table__primary { font-weight: var(--nbs-weight-bold); }
+}
+

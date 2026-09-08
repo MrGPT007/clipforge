@@ -1,0 +1,43 @@
+@layer nbs.components {
+  .nbs-tabs {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: .3rem;
+    padding: .3rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-md);
+    background: var(--nbs-surface-muted);
+  }
+
+  .nbs-tab {
+    appearance: none;
+    min-height: var(--nbs-control-sm);
+    padding: 0 var(--nbs-space-3);
+    border: var(--nbs-border-width) solid transparent;
+    border-radius: calc(var(--nbs-radius-sm) - 2px);
+    background: transparent;
+    color: var(--nbs-text-muted);
+    font-weight: var(--nbs-weight-bold);
+    cursor: pointer;
+    transition:
+      background-color var(--nbs-motion-fast) var(--nbs-ease-standard),
+      color var(--nbs-motion-fast) var(--nbs-ease-standard),
+      transform var(--nbs-motion-fast) var(--nbs-ease-release),
+      box-shadow var(--nbs-motion-fast) var(--nbs-ease-release);
+  }
+
+  .nbs-tab[aria-selected="true"] {
+    border-color: var(--nbs-border);
+    background: var(--nbs-surface);
+    color: var(--nbs-text);
+    box-shadow: inset 0 -2px 0 var(--nbs-primary-strong);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nbs-tab:hover:not([aria-selected="true"]) { background: color-mix(in srgb, var(--nbs-surface), transparent 25%); color: var(--nbs-text); }
+    .nbs-tab[aria-selected="true"]:hover { transform: translateY(1px); box-shadow: inset 0 -1px 0 var(--nbs-primary-strong); }
+  }
+
+  .nbs-tab:active { transform: translateY(2px); box-shadow: inset 0 0 0 var(--nbs-primary-strong); transition-duration: var(--nbs-motion-instant); }
+}
+

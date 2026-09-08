@@ -1,2 +1,3 @@
 export { clipForgeTokens } from "./tokens"
-export { clipForgeDesignSystem } from "./manifest"
+export { default as clipForgeDesignSystem } from "./manifest.json"
+

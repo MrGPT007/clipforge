@@ -1,0 +1,99 @@
+@layer nbs.base {
+  :where(.nbs-heading, .nbs-label, .nbs-help, .nbs-button, .nbs-badge, .nbs-card, .nbs-alert, .nbs-table, .nbs-data-table) {
+    overflow-wrap: anywhere;
+  }
+
+  :where(code, .nbs-mono, [data-nbs-identifier]) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+}
+
+@layer nbs.utilities {
+  .nbs-bidi-isolate { unicode-bidi: isolate; }
+  .nbs-bidi-plaintext { unicode-bidi: plaintext; }
+
+  .nbs-icon--directional {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+
+  :dir(rtl) .nbs-icon--directional,
+  [dir="rtl"] .nbs-icon--directional {
+    transform: scaleX(-1);
+  }
+}
+
+@layer nbs.components {
+  @media (prefers-contrast: more) {
+    :root {
+      --nbs-border-width: var(--nbs-border-width-strong);
+    }
+
+    :focus-visible {
+      outline-width: 4px;
+      outline-offset: 4px;
+    }
+  }
+
+  @media (forced-colors: active) {
+    :root,
+    :root[data-theme="dark"],
+    [data-theme="dark"] {
+      --nbs-bg: Canvas;
+      --nbs-surface: Canvas;
+      --nbs-surface-muted: Canvas;
+      --nbs-surface-strong: Canvas;
+      --nbs-text: CanvasText;
+      --nbs-text-muted: CanvasText;
+      --nbs-border: CanvasText;
+      --nbs-shadow: CanvasText;
+      --nbs-primary: Highlight;
+      --nbs-primary-strong: Highlight;
+      --nbs-success: Highlight;
+      --nbs-warning: Highlight;
+      --nbs-danger: Highlight;
+      --nbs-info: Highlight;
+      --nbs-focus: Highlight;
+      --nbs-selection: Highlight;
+    }
+
+    .nbs-tactile,
+    .nbs-button,
+    .nbs-card,
+    .nbs-input,
+    .nbs-textarea,
+    .nbs-select,
+    .nbs-alert,
+    .nbs-switch,
+    .nbs-check__box,
+    .nbs-radio__dot,
+    .nbs-filter-chip {
+      box-shadow: none;
+    }
+
+    .nbs-button--primary,
+    .nbs-button--success,
+    .nbs-button--warning,
+    .nbs-button--danger,
+    .nbs-badge--primary,
+    .nbs-badge--success,
+    .nbs-badge--warning,
+    .nbs-badge--danger,
+    .nbs-badge--info {
+      background: Highlight;
+      color: HighlightText;
+      border-color: Highlight;
+    }
+
+    .nbs-tactile:active,
+    .nbs-tactile[data-pressed="true"] {
+      transform: translate(2px, 2px);
+    }
+
+    :focus-visible {
+      outline-color: Highlight;
+    }
+  }
+}
+

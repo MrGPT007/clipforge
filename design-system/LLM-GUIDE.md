@@ -64,3 +64,4 @@ Before adding a new component, confirm all of these are true:
 - States are defined: default, hover, focus-visible, active, disabled, loading when applicable, error/invalid when applicable.
 - The component is added to `design-system/manifest.json`.
 - Any user-facing copy follows `docs/GRANDMA-PROOF-UI-COPY-RULEBOOK.md`.
+

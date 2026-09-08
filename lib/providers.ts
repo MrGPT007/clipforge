@@ -1,0 +1,5 @@
+import {supportsTask,type Model} from './core';
+export const CLOUD_BASE={openai:'https://api.openai.com/v1',openrouter:'https://openrouter.ai/api/v1',groq:'https://api.groq.com/openai/v1'} as const;
+export function cloudBase(model:Model){if(!(model.provider in CLOUD_BASE))throw Error('Choose an online text service.');return CLOUD_BASE[model.provider as keyof typeof CLOUD_BASE];}
+export async function providerRequest(url:string,key:string,payload?:unknown,eleven=false){const r=await fetch(url,{method:payload?'POST':'GET',redirect:'error',headers:{...(eleven?{'xi-api-key':key}:{Authorization:`Bearer ${key}`}),...(payload?{'Content-Type':'application/json'}:{})},body:payload?JSON.stringify(payload):undefined,signal:AbortSignal.timeout(60000)});if(!r.ok)throw Error(r.status===401?'The service did not accept this key.':r.status===429?'The service is busy or your allowance has run out.':`The service could not complete this request (${r.status}).`);return r;}
+export function checkTask(m:Model,task:string){if(!supportsTask(m,task))throw Error('Choose a model that supports this job.');}

@@ -1,0 +1,11 @@
+{
+  "data_dir": "/data",
+  "inbox_dir": "/inbox",
+  "llm_base_url": "http://model:8080/v1",
+  "llm_model": "clip-editor",
+  "llm_daily_request_limit": 0,
+  "chunk_characters": 5000,
+  "whisper_model": "small",
+  "whisper_device": "cpu",
+  "whisper_compute_type": "int8"
+}

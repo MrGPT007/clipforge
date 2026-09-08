@@ -1,0 +1,4 @@
+import {z} from 'zod';
+import {owner,body,fail,ApiError} from '@/lib/server';
+import {CLOUD_BASE,providerRequest} from '@/lib/providers';
+export async function POST(request:Request){try{await owner(request);const d=z.object({provider:z.enum(['openai','openrouter','groq','elevenlabs']),key:z.string().min(1).max(500)}).parse(await body(request));const url=d.provider==='elevenlabs'?'https://api.elevenlabs.io/v1/models':CLOUD_BASE[d.provider]+'/models';const r=await (await providerRequest(url,d.key,undefined,d.provider==='elevenlabs')).json() as any;const models=d.provider==='elevenlabs'?r.filter((m:any)=>m.can_do_text_to_speech).map((m:any)=>({id:m.model_id,name:m.name})):r.data.map((m:any)=>({id:m.id,name:m.name||m.id}));return Response.json({models},{headers:{'Cache-Control':'no-store'}});}catch(e){return fail(new ApiError(e instanceof Error?e.message:'Could not load models.'));}}
