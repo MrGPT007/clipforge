@@ -1,0 +1,16 @@
+services:
+  maker:
+    build: .
+    restart: unless-stopped
+    volumes:
+      - ./tasks:/tasks
+      - ./output:/output
+      - model-cache:/models
+    environment:
+      CLIPFORGE_MODEL_URL: ${CLIPFORGE_MODEL_URL:-http://host.docker.internal:1234/v1}
+      CLIPFORGE_API_KEY: ${CLIPFORGE_API_KEY:-}
+      CLIPFORGE_LOCAL_KEY: ${CLIPFORGE_LOCAL_KEY:-local}
+    extra_hosts:
+      - host.docker.internal:host-gateway
+volumes:
+  model-cache:

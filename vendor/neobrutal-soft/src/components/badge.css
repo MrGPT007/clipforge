@@ -1,0 +1,32 @@
+@layer nbs.components {
+  .nbs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--nbs-space-1);
+    min-height: 1.75rem;
+    padding: .15rem .55rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-pill);
+    background: var(--nbs-surface-muted);
+    color: var(--nbs-text);
+    font-size: var(--nbs-text-xs);
+    font-weight: var(--nbs-weight-bold);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .nbs-badge--success { background: var(--nbs-success); color: #111; }
+  .nbs-badge--warning { background: var(--nbs-warning); color: #111; }
+  .nbs-badge--danger { background: var(--nbs-danger); color: #111; }
+  .nbs-badge--info { background: var(--nbs-info); color: #111; }
+  .nbs-badge--primary { background: var(--nbs-primary); color: #111; }
+
+  .nbs-status-dot {
+    width: .55em;
+    height: .55em;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+    background: currentColor;
+  }
+}
+

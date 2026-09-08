@@ -1,0 +1,65 @@
+@layer nbs.components {
+  .nbs-check {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    gap: var(--nbs-space-2);
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .nbs-check input {
+    position: absolute;
+    inset-inline-start: 0;
+    top: .08rem;
+    z-index: 1;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .nbs-check__box {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-top: .08rem;
+    flex: 0 0 auto;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: 5px;
+    background: var(--nbs-surface);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+    pointer-events: none;
+    transform: translate(0, 0);
+    transition:
+      transform var(--nbs-motion-fast) var(--nbs-ease-release),
+      box-shadow var(--nbs-motion-fast) var(--nbs-ease-release),
+      background-color var(--nbs-motion-fast) var(--nbs-ease-standard);
+  }
+
+  .nbs-check__box::after {
+    content: "";
+    width: .58rem;
+    height: .32rem;
+    border-left: 2px solid #111;
+    border-bottom: 2px solid #111;
+    opacity: 0;
+    transform: translateY(-1px) rotate(-45deg) scale(.7);
+    transition: opacity var(--nbs-motion-fast) var(--nbs-ease-standard), transform var(--nbs-motion-fast) var(--nbs-ease-standard);
+  }
+
+  .nbs-check input:checked + .nbs-check__box { background: var(--nbs-primary); }
+  .nbs-check input:checked + .nbs-check__box::after { opacity: 1; transform: translateY(-1px) rotate(-45deg) scale(1); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nbs-check:hover .nbs-check__box { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--nbs-shadow); }
+  }
+
+  .nbs-check:active .nbs-check__box { transform: translate(2px, 2px); box-shadow: none; transition-duration: var(--nbs-motion-instant); }
+  .nbs-check input:focus-visible + .nbs-check__box { outline: 3px solid var(--nbs-focus); outline-offset: 3px; }
+  .nbs-check__label { line-height: 1.35; }
+}
+

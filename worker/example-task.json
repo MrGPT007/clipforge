@@ -1,0 +1,24 @@
+{
+  "format": "clipforge-task",
+  "version": 1,
+  "project": {
+    "id": "example",
+    "title": "One small moment",
+    "source": "Before you pick up your phone, open the curtains and take one slow breath.\n\nYou do not have to change everything. Start with one moment that belongs to you.",
+    "sourceType": "script",
+    "style": "story",
+    "duration": 15,
+    "autoSkills": true,
+    "skillIds": [],
+    "skillSnapshot": [],
+    "modelId": "builtin-local",
+    "status": "ready",
+    "scenes": [
+      {"heading": "A tiny habit. A different day.", "narration": "Before you pick up your phone, open the curtains and take one slow breath."},
+      {"heading": "Small is a good start.", "narration": "You do not have to change everything. Start with one moment that belongs to you."}
+    ]
+  },
+  "model": {"name":"My computer", "provider":"local","model":"qwen3-4b","baseUrl":"http://localhost:1234/v1"},
+  "skills": [],
+  "voice": {"engine":"kokoro","name":"af_heart"}
+}

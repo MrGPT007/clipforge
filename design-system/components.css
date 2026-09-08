@@ -46,3 +46,4 @@
   [data-slot="sidebar-menu-button"] { transition:transform var(--duration-fast) var(--ease-standard),background-color var(--duration-fast),box-shadow var(--duration-fast); }
   [data-slot="sidebar-menu-button"][data-active="true"] { background:var(--sidebar-accent); color:var(--sidebar-accent-foreground); box-shadow:var(--shadow-xs); }
 }
+

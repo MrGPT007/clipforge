@@ -45,3 +45,4 @@ UI copy follows `GRANDMA-PROOF-UI-COPY-RULEBOOK.md`: labels describe the user's 
 ## LLM implementation protocol
 
 A coding model should read, in order: `AGENTS.md`, `design-system/LLM-GUIDE.md`, `design-system/manifest.json`, the specific component files it intends to use, and the Grandma-proof copy rulebook for user-facing copy.
+

@@ -1,0 +1,115 @@
+@layer nbs.components {
+  .nbs-license-card {
+    display: grid;
+    gap: var(--nbs-space-4);
+    padding: var(--nbs-space-4);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-lg);
+    background: var(--nbs-surface);
+    box-shadow: 3px 3px 0 var(--nbs-shadow);
+  }
+
+  .nbs-license-card__head,
+  .nbs-license-card__footer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--nbs-space-3);
+    flex-wrap: wrap;
+  }
+
+  .nbs-license-card__key {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
+    min-width: 0;
+    font-family: var(--nbs-font-mono);
+    font-size: var(--nbs-text-sm);
+    font-weight: var(--nbs-weight-medium);
+  }
+
+  .nbs-license-card__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+    gap: var(--nbs-space-3);
+  }
+
+  .nbs-license-card__meta-item {
+    display: grid;
+    gap: .2rem;
+    padding: var(--nbs-space-3);
+    border: var(--nbs-border-width) solid color-mix(in srgb, var(--nbs-border), transparent 65%);
+    border-radius: var(--nbs-radius-sm);
+    background: var(--nbs-surface-muted);
+  }
+  .nbs-license-card__meta-item span { color: var(--nbs-text-muted); font-size: var(--nbs-text-xs); }
+  .nbs-license-card__meta-item strong { font-size: var(--nbs-text-sm); }
+
+  .nbs-activation-meter { display: grid; gap: .45rem; }
+  .nbs-activation-meter__head { display: flex; align-items: center; justify-content: space-between; gap: var(--nbs-space-2); font-size: var(--nbs-text-xs); }
+  .nbs-activation-meter__track {
+    display: grid;
+    grid-template-columns: repeat(var(--nbs-activation-limit, 3), minmax(0, 1fr));
+    gap: .35rem;
+  }
+  .nbs-activation-meter__slot {
+    min-height: .75rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-pill);
+    background: var(--nbs-surface-strong);
+  }
+  .nbs-activation-meter__slot.is-used { background: var(--nbs-primary); }
+  .nbs-activation-meter__slot.is-warning { background: var(--nbs-warning); }
+
+  .nbs-webhook-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: var(--nbs-space-3);
+    align-items: center;
+    padding: var(--nbs-space-3);
+    border-bottom: var(--nbs-border-width) solid color-mix(in srgb, var(--nbs-border), transparent 72%);
+  }
+  .nbs-webhook-row:last-child { border-bottom: 0; }
+  .nbs-webhook-row__method {
+    display: inline-grid;
+    place-items: center;
+    min-width: 3rem;
+    min-height: 1.8rem;
+    padding-inline: .45rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-sm);
+    background: var(--nbs-info);
+    color: #111;
+    font-family: var(--nbs-font-mono);
+    font-size: .68rem;
+    font-weight: var(--nbs-weight-bold);
+  }
+  .nbs-webhook-row__body { min-width: 0; }
+  .nbs-webhook-row__body strong { display: block; font-size: var(--nbs-text-sm); }
+  .nbs-webhook-row__body code { display: block; max-width: 100%; margin-top: .15rem; overflow: hidden; color: var(--nbs-text-muted); font-size: var(--nbs-text-xs); text-overflow: ellipsis; white-space: nowrap; }
+
+  .nbs-risk-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    min-height: 1.75rem;
+    padding-inline: .55rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-pill);
+    background: var(--nbs-surface);
+    font-family: var(--nbs-font-mono);
+    font-size: .68rem;
+    font-weight: var(--nbs-weight-bold);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .nbs-risk-chip--read { background: var(--nbs-success); color: #111; }
+  .nbs-risk-chip--write { background: var(--nbs-warning); color: #111; }
+  .nbs-risk-chip--critical { background: var(--nbs-danger); color: #111; }
+
+  @media (max-width: 620px) {
+    .nbs-webhook-row { grid-template-columns: auto minmax(0, 1fr); }
+    .nbs-webhook-row > :last-child { grid-column: 1 / -1; justify-self: start; }
+  }
+}
+

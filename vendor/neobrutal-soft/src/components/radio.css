@@ -1,0 +1,110 @@
+@layer nbs.components {
+  .nbs-radio-group {
+    display: grid;
+    gap: var(--nbs-space-2);
+  }
+
+  .nbs-radio {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--nbs-space-3);
+    padding: var(--nbs-space-3);
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: var(--nbs-radius-sm);
+    background: var(--nbs-surface);
+    box-shadow: 2px 2px 0 var(--nbs-shadow);
+    cursor: pointer;
+    user-select: none;
+    transform: translate(0, 0);
+    transition:
+      transform var(--nbs-motion-fast) var(--nbs-ease-release),
+      box-shadow var(--nbs-motion-fast) var(--nbs-ease-release),
+      background-color var(--nbs-motion-fast) var(--nbs-ease-standard);
+  }
+
+  .nbs-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nbs-radio__dot {
+    display: grid;
+    place-items: center;
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-top: .05rem;
+    border: var(--nbs-border-width) solid var(--nbs-border);
+    border-radius: 50%;
+    background: var(--nbs-surface-muted);
+    box-shadow: inset 0 -2px 0 color-mix(in srgb, var(--nbs-border), transparent 84%);
+  }
+
+  .nbs-radio__dot::after {
+    content: "";
+    width: .58rem;
+    height: .58rem;
+    border-radius: 50%;
+    background: var(--nbs-text);
+    opacity: 0;
+    transform: scale(.55);
+    transition: opacity var(--nbs-motion-fast) var(--nbs-ease-standard), transform var(--nbs-motion-fast) var(--nbs-ease-standard);
+  }
+
+  .nbs-radio__copy {
+    display: grid;
+    gap: .18rem;
+  }
+
+  .nbs-radio__copy span {
+    color: var(--nbs-text-muted);
+    font-size: var(--nbs-text-xs);
+    line-height: 1.4;
+  }
+
+  .nbs-radio:has(input:checked) {
+    background: color-mix(in srgb, var(--nbs-primary), var(--nbs-surface) 74%);
+    box-shadow: inset 0 -3px 0 var(--nbs-primary-strong);
+    transform: translate(2px, 2px);
+  }
+
+  .nbs-radio input:checked + .nbs-radio__dot {
+    background: var(--nbs-primary);
+  }
+
+  .nbs-radio input:checked + .nbs-radio__dot::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .nbs-radio:hover:not(:has(input:checked)) {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0 var(--nbs-shadow);
+    }
+  }
+
+  .nbs-radio:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+    transition-duration: var(--nbs-motion-instant);
+  }
+
+  .nbs-radio:has(input:focus-visible) {
+    outline: 3px solid var(--nbs-focus);
+    outline-offset: 3px;
+  }
+
+  .nbs-radio:has(input:disabled) {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nbs-radio,
+    .nbs-radio__dot::after { transition-duration: .01ms; }
+  }
+}
+

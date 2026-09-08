@@ -1,0 +1,7 @@
+data
+inbox
+models
+.venv
+__pycache__
+tests
+*.zip

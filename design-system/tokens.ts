@@ -19,3 +19,4 @@ export const clipForgeTokens = {
   motion: { fast: "var(--duration-fast)", base: "var(--duration-base)", slow: "var(--duration-slow)", standard: "var(--ease-standard)", emphasized: "var(--ease-emphasized)" },
 } as const;
 export type ClipForgeTokenGroup = keyof typeof clipForgeTokens;
+
